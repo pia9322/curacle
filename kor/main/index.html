@@ -22,7 +22,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="">
     <meta property="og:image" content="../images/og_img.png">
-    <meta property="og:description" content="CURACLE 큐라클 – CURACLE 큐라클">
+    <meta property="og:description" content="큐라클, CURACLE">
 
     <meta name="twitter:card" content="...">
     <meta name="twitter:title" content="...">
@@ -80,31 +80,35 @@
                 <li>
                     <a href="../about/company.html">COMPANY</a>
                     <ul class="depth_01">
-                        <li><a href="#none">asd</a></li>
+                        <li><a href="#none">큐라클 소개</a></li>
+                        <li><a href="#none">경영진 소개</a></li>
+                        <li><a href="#none">조직도</a></li>
+                        <li><a href="#none">연혁</a></li>
+                        <li><a href="#none">찾아오시는 길</a></li>
                     </ul>
                 </li>
 
 
                 <li>
                     <a href="#none">PLATFORM TECHNOLOGY</a>
-                    <ul class="depth_01">
-                        <li><a href="#none">asd</a></li>
-                    </ul>
                 </li>
 
 
                 <li>
                     <a href="#none">PIPELINE</a>
                     <ul class="depth_01">
-                        <li><a href="#none">asd</a></li>
+                        <li><a href="#none">Overview</a></li>
+                        <li><a href="#none">Publications</a></li>
                     </ul>
                 </li>
 
 
                 <li>
-                    <a href="#none">PRESS</a>
+                    <a href="#none">Communication</a>
                     <ul class="depth_01">
-                        <li><a href="#none">asd</a></li>
+                        <li><a href="#none">큐라클 소식</a></li>
+                        <li><a href="#none">미디어 클리핑</a></li>
+                        <li><a href="#none">채용 정보</a></li>
                     </ul>
                 </li>
 
@@ -113,10 +117,13 @@
                 <li>
                     <a href="#none">IR</a>
                     <ul class="depth_01">
-                        <li><a href="#none">ir_01</a></li>
-                        <li><a href="#none">ir_02</a></li>
+                        <li><a href="#none">공시</a></li>
+                        <li><a href="#none">IR 자료 / 투자정보</a></li>
+                        <li><a href="#none">Q&A</a></li>
+                        <li><a href="#none">IR Contact</a></li>
                     </ul>
                 </li>
+
 
             </ul>
 
@@ -622,32 +629,32 @@
 
         $(function() {
             // if (window.innerWidth >= 767) {
-                $('#fullpage').fullpage({
-                    menu : '#fp-nav',
-                    scrollHorizontally: true,
-                    scrollOverflow: true,
+            $('#fullpage').fullpage({
+                menu: '#fp-nav',
+                scrollHorizontally: true,
+                scrollOverflow: true,
 
 
-                    navigation: true,
-                    navigationTooltips: ['MAIN', 'COMPANY', 'PRESS', 'IR'],
-                    showActiveTooltip: true,
-                    navigationPosition: true,
-                    responsiveWidth: 1600,
-                    responsiveHeight: 600,
+                navigation: true,
+                navigationTooltips: ['MAIN', 'COMPANY', 'PRESS', 'IR'],
+                showActiveTooltip: true,
+                navigationPosition: true,
+                responsiveWidth: 1600,
+                responsiveHeight: 600,
 
 
-                    onLeave: function(anchorLink, index, direction) {
-                        let headerLeftImg = $('#header_left a img');
-                        (index == 3) ? $('#header').addClass('active'): $('#header').removeClass('active');
-                        $('#header').hasClass('active') ? headerLeftImg.attr('src', '../images/ico/logo_02.svg') : headerLeftImg.attr('src', '../images/ico/logo_01.svg');
-                        $('#header').hasClass('active') ? $('#fp-nav').addClass('active') : $('#fp-nav').removeClass('active');
+                onLeave: function(anchorLink, index, direction) {
+                    let headerLeftImg = $('#header_left a img');
+                    (index == 3) ? $('#header').addClass('active'): $('#header').removeClass('active');
+                    $('#header').hasClass('active') ? headerLeftImg.attr('src', '../images/ico/logo_02.svg') : headerLeftImg.attr('src', '../images/ico/logo_01.svg');
+                    $('#header').hasClass('active') ? $('#fp-nav').addClass('active') : $('#fp-nav').removeClass('active');
 
-                    }
+                }
 
-                });
-                
-                $('#fp-nav ul li:last-child').remove();
-                $('#fp-nav').show();
+            });
+
+            $('#fp-nav ul li:last-child').remove();
+            $('#fp-nav').show();
 
             // }
 
