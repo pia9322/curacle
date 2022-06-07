@@ -406,14 +406,23 @@ $(function () {
     
 
 
+    let headerLeftImg = $('#header_left a img');
 
     
 
-
+    $('.header_center').hover(function () {
+        $('.depth_01, .header_bg').stop().slideDown('fast');
+        $('header').addClass('active');
+        headerLeftImg.attr('src', '../images/ico/logo_02.svg')
+    }, function () {
+        $('.depth_01, .header_bg').stop().slideUp('fast');
+        $('header').removeClass('active');
+        headerLeftImg.attr('src', '../images/ico/logo_01.svg')
+    });
 
     // header function
     // headerScroll()
-    headerHover('.header_center > li', '.depth_01');
+    // headerHover('.header_center > li', '.depth_01');
     headerClick('.header_lang > ul', '.more_lang');
     headerFullslide();
     headerRight();

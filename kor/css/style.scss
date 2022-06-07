@@ -47,7 +47,7 @@ $color-200 : #98afc7;
 @mixin not_fixed_layout {max-width: 100%; width: 100%; margin: 0 auto;}
 @mixin layoutBoxColor {border: 2px solid #f00;}
 
-@mixin header-height {height: 100px;}
+@mixin header-height {height: 86px;}
 @mixin flexCenter { display: flex; justify-content: center; align-items: center; }
 @mixin fullsize {width: 100%; height: 100%;}
 
@@ -520,8 +520,8 @@ body {
 
         // active
         &.active {
-            background: rgba($color: #fff, $alpha: .8);
-            backdrop-filter: blur(20px);
+            background: #fff;
+            // backdrop-filter: blur(20px);
             a { color: #333; }
 
             .header_wrap {
@@ -565,52 +565,60 @@ body {
                 
                 margin-left: auto; margin-right: 80px;
 
+            
+             
+
                 >li {
                     @include transition(.3s);
-                    @include font-18();
                     position: relative;
                     margin-left: 80px;
-
-                    // &::after {
-                    //     content: '';
-                    //     position: absolute;
-                    //     left: 0;
-                    //     bottom: 0;
-                    //     height: 1px;
-                    //     width: 100%;
-                    //     background: $color-100;
-                    //     opacity: 0;
-                    //     @include transition(.3s);
-                    // }
-
-
+                    &:hover {
+                        &::after {
+                            width: 160px;
+                        }
+                    }
+                    &::after {
+                        content: '';
+                        position: absolute; left: 50%; bottom: 0; transform: translate(-50%);
+                        width: 0; height: 1px; 
+                        background: $color-100;
+                        @include transition(.3s);
+                    }
 
                     >a {
                         @include flexCenter();
                         @include transition(.15s);
+                        font-size: 18px; font-weight: bold;
                         position: relative; width: 100%; height: 100%;
-                        font-weight: 500;
                     }
 
                     .depth_01 {
                         display: none;
                         position: absolute; left: 50%; top: 100%; transform: translateX(-50%);
-                        background-color: $color-100;
-                        padding: 30px 50px; text-align: center; 
+                        padding: 30px 0; text-align: center; 
                         li {
                             @include transition(.3s);
                             margin-bottom: 15px;
                             &:last-child {margin-bottom: 0}
                             a {
                                 @include transition(.15s);
-                                @include font-18();
+                                font-size: 16px;
                                 white-space: nowrap;
-                                font-weight: 400; color: #a2acb7; 
-                                &:hover { color: #fff; font-weight: bold;}
+                                font-weight: 400; color: #555; 
+                                &:hover { color: $color-100;}
                             }
                         }
                     }
+                    
+                    
                 }
+                .header_bg {
+                    display: none;
+                    position: absolute; left: 0; top: 100%; z-index: -1;
+                    background: #fff;
+                    width: 100%; height: 228px;
+                }
+
 
                 .depth_01 {
                     // display: none;
@@ -627,7 +635,8 @@ body {
                 display: flex; align-items: center; z-index: 1;
                 
                 // header_right effect
-                /* &.active {
+                /* 
+                &.active {
                     span:nth-of-type(1) {
                         transform: rotate(45deg);
                         top: calc(50% - 1px);
@@ -643,7 +652,8 @@ body {
                         -ms-transform: rotate(-45deg);
                         -o-transform: rotate(-45deg);
                     }
-                } */
+                } 
+                */
 
                 .header_lang {
                     margin-right: 30px;
@@ -669,7 +679,7 @@ body {
 
                 // header_ham
                 .header_ham {
-                    position: relative;
+                    position: relative; top: -1px;
                     width: 28px; height: 18px;
                     cursor: pointer;
                     &.active {
@@ -816,6 +826,8 @@ body {
                     }
                 }
             }
+
+       
 
         }
 
