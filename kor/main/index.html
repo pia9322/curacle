@@ -622,6 +622,7 @@
         $(function() {
             // if (window.innerWidth >= 767) {
                 $('#fullpage').fullpage({
+                    menu : '#fp-nav',
                     scrollHorizontally: true,
                     scrollOverflow: true,
 
@@ -630,7 +631,9 @@
                     navigationTooltips: ['MAIN', 'COMPANY', 'PRESS', 'IR'],
                     showActiveTooltip: true,
                     navigationPosition: true,
-                    
+                    responsiveWidth: 1600,
+                    responsiveHeight: 600,
+
 
                     onLeave: function(anchorLink, index, direction) {
                         let headerLeftImg = $('#header_left a img');
@@ -643,6 +646,7 @@
                 });
                 
                 $('#fp-nav ul li:last-child').remove();
+                $('#fp-nav').show();
 
             // }
 
