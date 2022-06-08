@@ -4,12 +4,12 @@ $(function () {
 
     // ======================================= AOS ======================================= 
     AOS.init({
-        duration : 700 
+        duration: 700
     });
     // ======================================= AOS ======================================= 
 
 
-    
+
     // ======================================= swiper ======================================= 
     // main_visual
     var mainSwiper = new Swiper('.main_visual', {
@@ -29,13 +29,13 @@ $(function () {
             el: '.swiper-pagination',
             clickable: true,
             renderBullet: function (index, className) {
-                return '<span class="' + className + '">'+'<svg class="fp-arc-loader" width="16" height="16" viewBox="0 0 16 16">'+
-                  '<circle class="path" cx="8" cy="8" r="5.5" fill="none" transform="rotate(-90 8 8)" stroke="#FFF"'+
-                  'stroke-opacity="1" stroke-width="1.5px"></circle>'+
-              '<circle cx="8" cy="8" r="3" fill="#FFF" class="path_line"></circle>'+
-                  '</svg></span>';
-              },
-      
+                return '<span class="' + className + '">' + '<svg class="fp-arc-loader" width="16" height="16" viewBox="0 0 16 16">' +
+                    '<circle class="path" cx="8" cy="8" r="5.5" fill="none" transform="rotate(-90 8 8)" stroke="#FFF"' +
+                    'stroke-opacity="1" stroke-width="1.5px"></circle>' +
+                    '<circle cx="8" cy="8" r="3" fill="#FFF" class="path_line"></circle>' +
+                    '</svg></span>';
+            },
+
         },
         // navigation: {
         //     nextEl: '.swiper-button-next',
@@ -92,7 +92,7 @@ $(function () {
         //     }
         // }
     });
-    
+
     // // productThumb
     // let productThumb = new Swiper('.product_thum.swiper-container', {
     //     slidesPerView: 1,
@@ -199,14 +199,14 @@ $(function () {
     let nowLocation = location.href,
         subPageName = $('.visual_text .text_01').text();
 
-    
+
     // header_default 
-    let header = document.querySelector('#header'), 
-        header_ham = document.querySelector('.header_ham'), 
-        header_full = document.querySelector('.header_full'), 
+    let header = document.querySelector('#header'),
+        header_ham = document.querySelector('.header_ham'),
+        header_full = document.querySelector('.header_full'),
         depth_01 = document.querySelectorAll('.header_full_list > li');
 
-    
+
     // header hover event
     function headerHover(target01, target02) {
         $(target01).hover(function () {
@@ -220,6 +220,18 @@ $(function () {
     function headerClick(target01, target02) {
         $(target01).click(function () {
             $(this).children(target02).slideToggle("fast");
+        });
+    }
+
+    function header_curacle() {
+        $('.header_center').hover(function () {
+            $('#header .depth_01, .header_bg').stop().slideDown('fast');
+            // $('#header').addClass('active');
+            // $('#header_left a img').attr('src', '../images/ico/logo_02.svg')
+        }, function () {
+            $('#header .depth_01, .header_bg').stop().slideUp('fast');
+            // $('#header').removeClass('active');
+            // $('#header_left a img').attr('src', '../images/ico/logo_01.svg')
         });
     }
 
@@ -270,21 +282,25 @@ $(function () {
     function headerRight() {
         header_ham.addEventListener('click', function () {
             $(this).toggleClass('active');
+
             if ($(this).hasClass('active')) {
-                console.log(header_full);
                 $('.header_full, .header_lang, .header_sns').addClass('active');
-            }
-            else {
+                $('#header_left a img').attr('src', '../images/ico/logo_02.svg');
+                $('header').addClass('active')
+
+            } else {
                 $('.header_full, .header_lang, header_sns').removeClass('active');
+                $('#header_left a img').attr('src', '../images/ico/logo_01.svg');
+                $('header').removeClass('active')
+
             }
+
             if ($('.header_full').hasClass('active')) {
                 $('body').on('scroll touchmove mousewheel', function (e) {
                     e.preventDefault();
                     e.stopPropagation();
-                    return false;
                 });
-            }
-            else {
+            } else {
                 $('body').off('scroll touchmove mousewheel');
             }
         });
@@ -295,13 +311,10 @@ $(function () {
     function pageCheck() {
         // location Check
 
-
-        
-
-        if(nowLocation.indexOf('index.html') >= 0) {
-            console.log('Home') 
+        if (nowLocation.indexOf('index.html') >= 0) {
+            console.log('Home')
         } else {
-            console.log('subPage') 
+            console.log('subPage')
             headerLogo()
             subNaviDepth_01()
             $('#sub_nav_01 .depth_01 > a').text(subPageName)
@@ -319,12 +332,13 @@ $(function () {
         //     (subNaviEvent == LinkActive.eq(idx).text()) ? $(this).addClass('active') : null;
         // });
     }
+
     function headerLogo() {
-        $('#header_left a img').attr('src', '../images/ico/logo_black.svg');
+        $('#header_left a img').attr('src', '../images/ico/logo_02.svg');
         headerScroll();
     }
 
-    
+
     // sub_page_navi
     function subNaviDepth_01() {
         let tagList_01 = '';
@@ -339,7 +353,7 @@ $(function () {
             .then((data) => {
 
                 let addList = data.subNaviDepth_01
-                
+
                 for (let i = 0; i < addList.length; i++) {
                     tagList_01 = '<li class="depth_02_list"><a href="' + addList[i].href + '">' + addList[i].title + '</a></li>'
                     $('#sub_nav_01 .depth_02').append(tagList_01);
@@ -366,7 +380,7 @@ $(function () {
             .then((data) => {
 
                 let addList = data.subNavi_about
-                
+
                 for (let i = 0; i < addList.length; i++) {
                     tagList_01 = '<li class="depth_02_list"><a href="' + addList[i].href + '">' + addList[i].title + '</a></li>'
                     $('#sub_nav_02 .depth_02').append(tagList_01);
@@ -393,7 +407,7 @@ $(function () {
             .then((data) => {
 
                 let addList = data.subNavi_system
-                
+
                 for (let i = 0; i < addList.length; i++) {
                     tagList_01 = '<li class="depth_02_list"><a href="' + addList[i].href + '">' + addList[i].title + '</a></li>'
                     $('#sub_nav_02 .depth_02').append(tagList_01);
@@ -403,31 +417,20 @@ $(function () {
                 console.log('ERROR_02')
             })
     }
-    
 
-
-    let headerLeftImg = $('#header_left a img');
-
-    
-
-    $('.header_center').hover(function () {
-        $('.depth_01, .header_bg').stop().slideDown('fast');
-        $('header').addClass('active');
-        headerLeftImg.attr('src', '../images/ico/logo_02.svg')
-    }, function () {
-        $('.depth_01, .header_bg').stop().slideUp('fast');
-        $('header').removeClass('active');
-        headerLeftImg.attr('src', '../images/ico/logo_01.svg')
-    });
 
     // header function
     // headerScroll()
     // headerHover('.header_center > li', '.depth_01');
+    // page function
+    // pageCheck();
+
+
     headerClick('.header_lang > ul', '.more_lang');
     headerFullslide();
-    headerRight();
-    // page function
-    pageCheck();
-    // common_js_end
+    // headerRight();
+    header_curacle()
+    headerLogo()
     console.log('common_js_end');
+    // common_js_end
 });

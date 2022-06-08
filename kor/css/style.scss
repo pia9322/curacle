@@ -43,7 +43,7 @@ $color-200 : #98afc7;
 // ====================================JJ MIXIN====================================
 @mixin fixed-layout {max-width: 1820px; width: 100%; margin: 0 auto; }
 @mixin fixed-layout_01 {max-width: 1670px; width: 100%;}
-// @mixin fixed-layout-subpage {max-width: 1360px; width: 100%; margin: 0 auto;}
+@mixin fixed-layout-subpage {max-width: 1420px; width: 100%; margin: 0 auto;}
 @mixin not_fixed_layout {max-width: 100%; width: 100%; margin: 0 auto;}
 @mixin layoutBoxColor {border: 2px solid #f00;}
 
@@ -529,12 +529,15 @@ body {
                                
                     .header_lang  {
                         > ul {
-                            .fixed_lang {border-bottom: 1px solid #666;}
-                            .more_lang {a { color: #fff; }}
+                            svg {
+                                path {fill: $color-100;}
+                            }
                         }
                     }
                     .header_ham {
-                        span {border-bottom: 1px solid #333;}
+                        svg {
+                            circle {fill: $color-100;}
+                        }
                     }
                 }
             } 
@@ -679,7 +682,7 @@ body {
 
                 // header_ham
                 .header_ham {
-                    position: relative; top: -1px;
+                    position: relative; top: -4px;
                     width: 28px; height: 18px;
                     cursor: pointer;
                     &.active {
@@ -836,6 +839,7 @@ body {
     }
 
     #footer {
+        margin-top: 150px;
         background: #111;
         padding: 50px 0 60px;
         .footer_wrap {
@@ -1274,6 +1278,160 @@ body {
 
             #footer { margin-top: 0; }
         }
+
+
+        &.sub_page {
+
+            // sub_visual
+            &.company #sub_visual  { background: url('../images/company/mv.png')no-repeat center/cover; }
+
+
+            #sub_visual {
+                position: relative;
+                height: 560px;
+                .visual_text {
+                    @include fullsize();
+                    display: flex; justify-content: center; flex-direction: column;
+                    .text {
+                        &.text_01 { font-size: 20px; font-weight: bold; line-height: 1.5; letter-spacing: -0.5px; color: #fff; margin-bottom: 10px; }
+                        &.text_02 { @include text_52(); color: #fff; }
+                    }
+                }
+
+                .sub_navi {
+                    position: absolute; left: 0; bottom: 0;
+                    width: 100%; max-width: 870px;
+                    background: #fff;
+                    .sub_navi_wrap {
+                        display: flex; 
+                        > nav {
+                            position: relative;
+                            cursor: pointer;
+
+                            &::after { content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 1px ; height: 24px; background-color: #e5e5e5; }
+                            .arrow_02 {@include transition(all .3s); border-color: #333; width: 6px; height: 6px; transform: rotate(135deg);}
+                            a { font-size: 14px; font-weight: 500; letter-spacing: -0.35px; color: #333; }
+
+                            &.sub_nav_home {
+                                width: 100px;
+                                display: flex; align-items: center;
+                            }
+
+                            &.sub_nav {
+                                width: 260px; height: 64px;
+                                display: flex; align-items: center; 
+                              
+                                .depth_wrap {
+                                    @include fullsize();
+                                    &:hover {
+                                        .depth_01 .arrow_02 {transform: rotate(315deg);}
+                                        .depth_02 { max-height: 300px; }
+                                    }
+                                    .depth_01 {
+                                        @include fullsize();
+                                        display: flex; justify-content: space-between; align-items: center;
+                                        padding: 0 30px;
+                                    }
+                                    .depth_02 {
+                                        position: absolute; left: 0; top: 100%;
+                                        width: 100%; max-height: 0;
+                                        overflow: hidden;
+                                        @include transition(all .3s);
+                                        background: #fff;
+                                        > li {
+                                            border-bottom: 1px solid transparent;
+                                            @include transition(all .15s);
+                                            &:hover {
+                                                border-color: $color-100;
+                                                a { @include transition(all .15s); color: $color-100; }
+                                            } 
+                                            a {
+                                                display: block; padding: 10px 30px; 
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
+
+                    }
+                    
+                } 
+            }
+
+            .sub_fixed_layout { @include fixed-layout-subpage() }
+            .section_tit_01 { @include text_42(); text-align: center;}
+            .section_tit_02 { font-size: 18px;line-height: 1.5;letter-spacing: -0.45px;text-align: center;color: #555;}
+
+            &.company {
+                &#about {
+                    .sub_section {
+                        margin-top: 120px;
+                        
+                        &.section_01 {
+                            .content  {
+                                &.content_01 {
+                                    .content_wrap {
+                                        .section_tit_02 {margin-top: 10px;}
+
+                                        .con {
+                                            margin-top: 70px;
+                                            &.con_01 {
+                                                figure {
+                                                    position: relative;
+                                                    &::after {
+                                                        content: '';
+                                                        @include absolute-x(0, 0); z-index: -1;
+                                                        max-width: 1180px; width: 100%;
+                                                        max-height: 300px; height: 100%;
+                                                        background-color: $color-100;
+                                                    }
+                                                    img {margin: 30px 0 0 30px;}
+                                                }
+                                            }
+                                            &.con_03 {
+                                                ul {
+                                                    display: flex;
+                                                    justify-content: space-between;
+                                                    li {
+                                                        @include flexCenter();
+                                                        @include transition(all .3s);
+                                                        cursor: pointer;
+                                                        flex-direction: column;
+                                                        width: 33%;  height: 420px;
+                                                        border: 1px solid #e5e5e5;
+                                                        &:hover, &.active {
+                                                            align-items: flex-start; justify-content: flex-start;
+                                                            width: 820px; padding: 80px 50px;
+                                                            background-color: $color-100;
+                                                            .text {
+                                                                &.text_01 { @include text_32();  color:#fff;}
+                                                                &.text_02 { height: auto;opacity: 1; visibility: visible}
+                                                            }
+                                                            img {opacity: 0}
+                                                        }
+                                                        .text {
+                                                            &.text_01 { @include text_24();  color:#000;}
+                                                            &.text_02 { opacity: 0; visibility: hidden; height: 0; margin-top:20px; font-size: 16px; line-height: 1.75; letter-spacing: -0.4px; color: #f1f1f1; }
+                                                        }
+                                                        img {margin-top: 20px;}
+                                                  
+                                                    }
+                                                }
+                                            }
+                                        } 
+                                    }    
+                                }
+                            } 
+                        }
+
+                    }
+                }
+            }
+        }
+
 
     }
 }
