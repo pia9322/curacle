@@ -93,6 +93,33 @@ $(function () {
         // }
     });
 
+
+    var swiper02 = new Swiper(".history_swiper", {
+        slidesPerView: 2,
+        slidesPerGroup : 2,
+        loopFillGroupWithBlank : true,
+        
+        autoHeight: true,
+        breakpoints: { //반응형 조건 속성
+           1023: {
+               slidesPerView: 2,
+           },
+           767: {
+               slidesPerView: 1,
+                slidesPerGroup : 1
+           },
+           480: {
+               slidesPerView: 1,
+               slidesPerGroup : 1
+           },
+           0: {
+               slidesPerView: 1,
+               slidesPerGroup : 1
+           },
+       }
+    });
+   
+
     // // productThumb
     // let productThumb = new Swiper('.product_thum.swiper-container', {
     //     slidesPerView: 1,
@@ -240,12 +267,12 @@ $(function () {
         $(window).scroll(function () {
             var scroll = $(window).scrollTop(), wh = $(window).height(), headerHei = $('#header').height();
             scroll >= headerHei ? $('#header').addClass('active') : $('#header').removeClass('active');
+            
+
+            $('#header').hasClass('active') ?  $('#header_left img').attr('src','../images/ico/logo_02.svg') :   $('#header_left img').attr('src','../images/ico/logo_01.svg')
         });
-        //    if($('#header').hasClass('active')) {
-        //        $('#header_left img').attr('src','../images/ico/logo_black.svg')
-        //    } else {
-        //        $('#header_left img').attr('src','../images/ico/logo.svg')
-        //    }
+
+         
     }
 
     // window resize reload
@@ -334,7 +361,7 @@ $(function () {
     }
 
     function headerLogo() {
-        $('#header_left a img').attr('src', '../images/ico/logo_02.svg');
+        
         headerScroll();
     }
 
@@ -420,7 +447,6 @@ $(function () {
 
 
     // header function
-    // headerScroll()
     // headerHover('.header_center > li', '.depth_01');
     // page function
     // pageCheck();
@@ -430,7 +456,8 @@ $(function () {
     headerFullslide();
     // headerRight();
     header_curacle()
-    headerLogo()
+    headerScroll()
+
     console.log('common_js_end');
     // common_js_end
 });

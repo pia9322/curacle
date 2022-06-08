@@ -80,17 +80,17 @@
                 <li>
                     <a href="../about/company.html">COMPANY</a>
                     <ul class="depth_01">
-                        <li><a href="#none">큐라클 소개</a></li>
+                        <li><a href="../company/about.html" class="on">큐라클 소개</a></li>
                         <li><a href="#none">경영진 소개</a></li>
-                        <li><a href="#none">조직도</a></li>
-                        <li><a href="#none">연혁</a></li>
-                        <li><a href="#none">찾아오시는 길</a></li>
+                        <li><a href="../company/organization.html" class="on">조직도</a></li>
+                        <li><a href="../company/history.html" class="on">연혁</a></li>
+                        <li><a href="../company/location.html" class="on">찾아오시는 길</a></li>
                     </ul>
                 </li>
 
 
                 <li>
-                    <a href="#none">PLATFORM TECHNOLOGY</a>
+                    <a href="../platform/technology.html">PLATFORM TECHNOLOGY</a>
                 </li>
 
 
@@ -270,7 +270,7 @@
                         <ul class="depth_wrap">
 
                             <li class="depth_01">
-                                <a href="#none">R&D 프로젝트</a> <i class="arrow_02"></i>
+                                <a href="#none">큐라클 소개</a> <i class="arrow_02"></i>
                             </li>
 
                             <ul class="depth_02">
@@ -349,7 +349,7 @@
 
                     <div class="con con_03">
                         <ul>
-                            <li class="list">
+                            <li class="list active">
                                 <p class="text text_01">Growth Stage</p>
                                 <p class="text text_02">
                                     • Candidate substance and early clinical phase portfolio
@@ -415,6 +415,7 @@
     <!-- --------------------------- MAIN --------------------------- -->
 
 
+
     <!-- footer -->
     <footer class="footer" id="footer">
         <div class="footer_wrap">
@@ -457,6 +458,14 @@
         </div>
     </footer>
 
+
+    
+    <script>
+        $('.con_03 .list').hover(function(){
+            $('.con_03 .list').removeClass('active');
+            $(this).addClass('active');
+        })
+    </script>
     <script src="../js/index.js"></script>
 </body>
 

@@ -114,9 +114,9 @@ body {
 
     // icon
     .ico {
-        display: inline-block; vertical-align: middle;
+        display: inline-block; 
         // dots
-        &.ico_01 {width: 4px; height: 4px; background-color: #666; border-radius: 100%} 
+        &.ico_01 {width: 10px; height: 10px; background-color: $color-100; border-radius: 100%} 
     }
     
     .layout_padding {padding-left: 13%;}
@@ -281,10 +281,9 @@ body {
 
             .num_box {
                 a {
-                    @include font-M();
                     position: relative;
                     font-size: 16px; font-weight: 300; color: #333;
-                    margin: 0 20px;
+                    margin: 0 5px;
                     &::after {
                         content: '';
                         @include transition(.15s);
@@ -293,10 +292,30 @@ body {
                         opacity: 0;
                     }
 
+                    
                     // active
                     &.active {
                         color: $color-100; font-weight: bold;
                         &::after { opacity: 1; }
+                    }
+                }
+
+                &.type_circle_01 {
+                    display: flex;
+                    a {
+                        @include flexCenter();
+                        @include transition(all .15s);
+                        width: 40px; height: 40px;
+                        color: #888;
+                        border-radius: 100%;
+                        &:hover:not(.active) {
+                            opacity: .7;
+                        }
+                        &:hover, &.active {
+                            background-color: $color-100; 
+                            color: #fff;
+                        }
+                        &::after {display: none;}
                     }
                 }
             }
@@ -348,7 +367,6 @@ body {
             tbody {
                 tr {
                     border-bottom: 1px solid #e5e5e5;
-
                     .table_notice_detail {
                         font-size: 16px;
                         padding: 20px;
@@ -593,6 +611,7 @@ body {
                         @include transition(.15s);
                         font-size: 18px; font-weight: bold;
                         position: relative; width: 100%; height: 100%;
+                    
                     }
 
                     .depth_01 {
@@ -607,8 +626,12 @@ body {
                                 @include transition(.15s);
                                 font-size: 16px;
                                 white-space: nowrap;
-                                font-weight: 400; color: #555; 
+                                font-weight: 400; 
+                                color: #ddd; 
                                 &:hover { color: $color-100;}
+                                &.on {
+                                    color: #555;
+                                }
                             }
                         }
                     }
@@ -1284,6 +1307,8 @@ body {
 
             // sub_visual
             &.company #sub_visual  { background: url('../images/company/mv.png')no-repeat center/cover; }
+            &.platform #sub_visual  { background: url('../images/platform/mv.png')no-repeat center/cover; }
+            &.commu #sub_visual  { background: url('../images/communication/mv.png')no-repeat center/cover; }
 
 
             #sub_visual {
@@ -1302,13 +1327,16 @@ body {
                     position: absolute; left: 0; bottom: 0;
                     width: 100%; max-width: 870px;
                     background: #fff;
+                    &.shorts {
+                        max-width: 610px;
+                    }
                     .sub_navi_wrap {
                         display: flex; 
                         > nav {
                             position: relative;
                             cursor: pointer;
-
-                            &::after { content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 1px ; height: 24px; background-color: #e5e5e5; }
+                            
+                            &:not(.sub_nav_02) { &::after { content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 1px ; height: 24px; background-color: #e5e5e5; }}
                             .arrow_02 {@include transition(all .3s); border-color: #333; width: 6px; height: 6px; transform: rotate(135deg);}
                             a { font-size: 14px; font-weight: 500; letter-spacing: -0.35px; color: #333; }
 
@@ -1362,13 +1390,13 @@ body {
             }
 
             .sub_fixed_layout { @include fixed-layout-subpage() }
+            .sub_section {margin-top: 120px;}
             .section_tit_01 { @include text_42(); text-align: center;}
             .section_tit_02 { font-size: 18px;line-height: 1.5;letter-spacing: -0.45px;text-align: center;color: #555;}
 
             &.company {
                 &#about {
                     .sub_section {
-                        margin-top: 120px;
                         
                         &.section_01 {
                             .content  {
@@ -1400,9 +1428,9 @@ body {
                                                         @include transition(all .3s);
                                                         cursor: pointer;
                                                         flex-direction: column;
-                                                        width: 33%;  height: 420px;
+                                                        width: 280px; height: 420px;
                                                         border: 1px solid #e5e5e5;
-                                                        &:hover, &.active {
+                                                        &.active {
                                                             align-items: flex-start; justify-content: flex-start;
                                                             width: 820px; padding: 80px 50px;
                                                             background-color: $color-100;
@@ -1425,6 +1453,163 @@ body {
                                     }    
                                 }
                             } 
+                        }
+
+                    }
+                }
+
+                &#organization {
+
+                    .section_01 {
+                        .con {
+                            &.con_01 {
+                                margin-top: 70px;text-align: center;
+                            }
+                        }
+                    }
+
+                }
+
+                &#location {
+                    .con {
+                        &.con_01 {
+                            margin-top: 70px;
+                            figure {
+                                .map_01 {
+                                    height: 615px;
+                                }
+                                figcaption {
+                                    background: #231f20;
+                                    padding: 60px 50px;
+                                    .text {
+                                        &.text_01{ @include text_32(); color: #fff; }
+                                        &.text_02{
+                                            @include kr_text_18(); color: #f1f1f1;
+                                            margin-top: 10px;
+                                        }
+                                    }
+                                    
+                                }
+                            }
+                            
+                        }
+                    }
+
+                }
+
+                &#history {
+                    .con {
+                        &.con_01 {
+                            margin-top: 70px;
+                            position: relative;
+                            .history_btn_wrap {
+                                display: flex; justify-content: flex-end;
+                                > div {
+                                    position: static;
+                                    width: 56px; height: 56px;
+                                    margin: 0;
+                                    &.swiper-button-prev {
+                                        background: url('../images/ico/ico_press_left.svg')no-repeat center/cover;
+                                    }
+                                    &.swiper-button-next {
+                                        background: url('../images/ico/ico_press_right.svg')no-repeat center/cover;
+                                    }
+                                }
+                            }
+                            .history_swiper {
+                                margin-top: 30px;
+                                .his_bar1 {
+                                    display: flex;
+                                    flex-wrap: wrap; 
+                                    .his_bar_c {
+                                        width: 16px; height: 16px;
+                                        background-color: #d9e7fd; border-radius: 100%;
+                                        position: relative;
+                                        &::after {
+                                            @include absolute-center();
+                                            content: '';
+                                            width: 10px; height: 10px;
+                                            border-radius: 100%; background-color: $color-100;
+                                        }
+                                    }
+
+                                    .his_bar_b {
+                                        background: #E5E5E5;
+                                        width: 100%; height: 2px;
+                                        margin: 7px 0 0px -1px;
+                                        position: absolute; right: 0; z-index: -1;
+                                    }
+        
+                                }
+
+                                .his_cont_txt {
+                                    margin-top: 48px;
+                                    display: flex; 
+                                    h3 {
+                                        @include text_52(); color: $color-100;
+                                        line-height: 1;
+                                    }
+                                    ul {
+                                        margin-left: 100px;
+
+                                        li {
+                                            display: flex;
+                                            margin-bottom: 10px;
+                                            &:last-child {margin-bottom: 0}
+                                            p {
+                                                &.month {@include kr_text_18(); color: $color-100; font-weight: bold;}
+                                                &.text {
+                                                    margin-left: 50px;
+                                                    @include kr_text_18(); color: #555;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    
+
+                                }
+                            }
+                        }
+                    }
+  
+                }
+            }
+
+            &.platform {
+                &#platform {
+                    .section_tit_02 {margin-top: 10px;}
+                    .con {
+                        &.con_01 {
+                            position: relative;
+                            margin-top: 70px;
+                            text-align: center;
+                        }
+                        
+                    }
+                }
+            }
+
+            &.commu {
+                &#notice {
+                    #table_default {
+                        margin-top: 70px;
+                        #table_body  {
+                            thead {
+                                background: #fff; 
+                                tr {
+                                    th {font-weight: bold;}
+                                }
+                            }
+                            tbody {
+                                tr {
+                                    td {
+                                        color: #888;
+                                        a {
+                                            color: #111;
+                                        }
+                                    }
+                                }
+                            }
                         }
 
                     }
