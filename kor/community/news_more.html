@@ -76,7 +76,6 @@
 
             <!-- HEADER_CENTER -->
             <ul class="header_center" id="header_center">
-
                 <li>
                     <a href="../about/company.html">COMPANY</a>
                     <ul class="depth_01">
@@ -227,16 +226,14 @@
     </header>
     <!----------------------------- HEADER ----------------------------->
 
-
     <!-- --------------------------- MAIN --------------------------- -->
-    <main class="sub_page pipeline" id="overview">
+    <main class="sub_page commu" id="notice_more">
 
-        <!-- SUB_VISUAL & NAVI -->
         <section class="sub_visual" id="sub_visual">
 
             <article class="visual_text layout_padding">
-                <p class="text text_01">PIPELINE</p>
-                <p class="text text_02 bold">Overview</p>
+                <p class="text text_01">COMMUNICATION</p>
+                <p class="text text_02 bold">큐라클 소식</p>
             </article>
 
             <article class="sub_navi layout_padding" id="sub_navi">
@@ -252,7 +249,7 @@
                         <ul class="depth_wrap">
 
                             <li class="depth_01">
-                                <a href="#none">COMMUNICATION</a> <i class="arrow_02"></i>
+                                <a href="#none">COMPANY</a> <i class="arrow_02"></i>
                             </li>
 
                             <ul class="depth_02">
@@ -270,7 +267,7 @@
                         <ul class="depth_wrap">
 
                             <li class="depth_01">
-                                <a href="#none">Overview</a> <i class="arrow_02"></i>
+                                <a href="#none">큐라클 소식</a> <i class="arrow_02"></i>
                             </li>
 
                             <ul class="depth_02">
@@ -289,38 +286,61 @@
 
         </section>
 
-
         <section class="sub_section section_01 sub_fixed_layout">
 
             <article class="content content_01">
                 <div class="content_wrap">
 
-                    <p class="section_tit_01">Innovative pipeline development strategy</p>
-                    <p class="section_tit_02">Differentiated R&BD for Fast New Drug Success and Profitability</p>
+                    <div class="table_default_more" id="table_default_more">
 
-                    <div class="con con_01">
+                        <!-- table -->
+                        <table class="table_notice">
+                            <thead>
+                                <tr>
+                                    <th class="table_notice_title">큐라클 소식입니다</th>
+                                    <th class="table_notice_data">data.now</th>
+                                </tr>
+                                <tr>
+                                    <td class="file_download" colspan="2">
+                                        <!-- <a class="down_link" href="#none" download="">테스트.pdf</a> -->
+                                    </td>
+                                </tr>
+                            </thead>
+
+                            <!-- tobdy -->
+                            <tbody class="table_notice_page">
+                                <tr>
+                                    <td class="table_notice_detail" colspan="2">
+                                        상세내용
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+
+
+                        <div class="table_notice_more">
+                            <a href="javascript:history.back()">목록</a>
+                        </div>
+
+                        <!-- table -->
 
                     </div>
 
                 </div>
             </article>
 
-            <article class="content content_02">
-                <div class="content_wrap"></div>
-            </article>
-
-
 
         </section>
-
-
-
 
 
     </main>
 
 
     <!-- --------------------------- MAIN --------------------------- -->
+
+    <!-- <?php include_once('../include/footer_banner_01.html') ?> -->
 
 
 
@@ -366,14 +386,10 @@
         </div>
     </footer>
 
+    <!-- <?php include_once('../include/footer.html') ?> -->
+    <!-- --------------------------- FOOTER --------------------------- -->
 
 
-    <script>
-        $('.con_03 .list').hover(function() {
-            $('.con_03 .list').removeClass('active');
-            $(this).addClass('active');
-        })
-    </script>
     <script src="../js/index.js"></script>
 </body>
 

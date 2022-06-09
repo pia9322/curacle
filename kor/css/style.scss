@@ -536,12 +536,18 @@ body {
         a {color: rgba($color: #fff, $alpha: 1);}
 
         // active
-        &.active {
+        &.active, &:hover {
             background: #fff;
             // backdrop-filter: blur(20px);
             a { color: #333; }
 
             .header_wrap {
+                .header_left {
+                    a {
+                        background: url('../images/ico/logo_02.svg')no-repeat center/cover;
+                        img {opacity: 0;}
+                    }
+                }
                 .header_right {
                                
                     .header_lang  {
@@ -573,7 +579,7 @@ body {
                 max-width: 200px; z-index: 1;
                 a {
                     display: block; width: 100%;
-                    img { width: 100%; }
+                    img { width: 100%; @include transition(all .15s)}
                 }
             }
 
@@ -1325,11 +1331,7 @@ body {
 
                 .sub_navi {
                     position: absolute; left: 0; bottom: 0;
-                    width: 100%; max-width: 870px;
                     background: #fff;
-                    &.shorts {
-                        max-width: 610px;
-                    }
                     .sub_navi_wrap {
                         display: flex; 
                         > nav {
