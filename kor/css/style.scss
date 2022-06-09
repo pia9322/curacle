@@ -1810,147 +1810,230 @@ body {
                     }
                 }
 
-                &#pubs_cu {
-                    .section_01 {
-                        .content {
-                            &.content_01 {
-                                .con {
-                                    &.con_01 {
-                                        margin-top: 70px;
-                                        figure {
-                                            position: relative;
-                                            overflow: hidden;
-                                            &::after {
-                                                content: '';
-                                                @include absolute-x(0, 0); z-index: -1;
-                                                max-width: 1180px; width: 100%;
-                                                max-height: 300px; height: 100%;
-                                                background-color: $color-100;
+                &.pubs_cu {
+                    // default
+                    .con_tit_01 {@include text_32();}
+                    .con_detail_01 {
+                        @include kr_text_18(); color: #555;
+                        margin-top: 10px;
+                    }
+                    .box_wrap {
+                        &.wrap_01 {
+                            display: flex;
+                        }
+                    }
+                    .con_box {
+                        position: relative;
+                        padding: 40px; border-radius: 10px; 
+                        margin-top: 30px;
+                        .mt_40 {margin-top: 40px}
+                        .box_tit_01 { @include text_24(); }
+                        .box_detail_01 {
+                            @include kr_text_16(); color: #555;
+                            margin-top: 10px;
+                        }
+
+                        .point_text_01 { margin-top: 20px; font-size: 14px;line-height: 1.43;letter-spacing: -0.35px;color: #555;}
+                        
+                        .point_svg {
+                            position: absolute; 
+                        }
+                    }
+                    .con_bg_img {
+                        position: relative;
+                        overflow: hidden;
+                        &::after {
+                            content: '';
+                            @include absolute-x(0, 0); z-index: -1;
+                            max-width: 1180px; width: 100%;
+                            max-height: 300px; height: 100%;
+                            background-color: $color-100;
+                        }
+                        img {@include transition(all 1s); margin: 30px 0 0 30px; transform: scale(1.3); }
+                        &.aos-animate {
+                            img {transform: scale(1);}
+                        }
+                    }
+                    // default
+
+
+
+                    // 
+                    &#cu_06 {
+
+                        .section_01 {
+                            .content {
+                                &.content_01 {
+                                    .con {
+                                        &.con_01 {
+                                            margin-top: 70px;
+                                        }
+                                    }
+                                }
+    
+                                &.content_02 {
+                                    .con {
+                                        &.con_01 { margin-top: 120px; }
+                                        &.con_02 { margin-top: 70px; }
+                                        .con_box {
+                                            .point_svg {
+                                                &.svg_01 {right: 40px; bottom: 10px;fill: #f4f4f4;}
                                             }
-                                            img {@include transition(all 1s); margin: 30px 0 0 30px; transform: scale(1.3); }
-                                            &.aos-animate {
-                                                img {transform: scale(1);}
+                    
+                                            &.con_box_01 {
+                                                background-color: #fafafa;
+                                                display: flex; justify-content: space-between; align-items: center;
+                                                .img_wrap {
+                                                    figcaption {text-align: center; @include text_24();margin-bottom: 10px; }
+                                                    &.wrap_01 figcaption {color: #419991;} 
+                                                    &.wrap_02 figcaption {color: #993c3b;} 
+                                                }
+                                            }
+                                            &.con_box_02 {
+                                                border: solid 1px #e5e5e5;
+                                                width: 100%;
+                                                margin-right: 13px; 
+                                                &:last-child {margin-right: 0}
+                                              
+                                            }
+                                            &.con_box_03 {
+                                                background-color: #fafafa;
+                                                figure {
+                                                    img {
+                                                        margin-right: 20px;
+                                                        &:last-child {margin-right: 0;}
+                                                    }
+                                                }
+                                            }
+                                            &.con_box_04 {
+                                                background-color: #fafafa;
+                                                width: 50%;
+                                                margin-right: 20px;
+                                                &:last-child{margin-right: 0;}
                                             }
                                         }
                                     }
                                 }
+    
                             }
-
-                            &.content_02 {
-                                .con {
-                                    &.con_01 { margin-top: 120px; }
-                                    &.con_02 { margin-top: 70px; }
-                                    .con_tit_01 {@include text_32();}
-                                    .con_detail_01 {
-                                        @include kr_text_18(); color: #555;
-                                        margin-top: 10px;
-                                    }
-
-                                    .box_wrap {
-                                        &.wrap_01 {
-                                            display: flex;
-                                        }
-                                    }
-
-                                    .con_box {
-                                        position: relative;
-                                        padding: 40px; border-radius: 10px; 
-                                        margin-top: 30px;
-                                        .box_info {
-                                            &.info_01 {}
-                                        } 
-                                        .box_tit_01 { @include text_24(); }
-                                        .box_detail_01 {
-                                            @include kr_text_16(); color: #555;
-                                            margin-top: 10px;
-                                        }
-                                        .point_text_01 { margin-top: 20px; font-size: 14px;line-height: 1.43;letter-spacing: -0.35px;color: #555;}
-                                        .point_svg {
-                                            position: absolute; 
-                                            &.svg_01 {right: 40px; bottom: 10px;fill: #f4f4f4;}
-                                        }
-
-                                        &.con_box_01 {
-                                            background-color: #fafafa;
-                                            display: flex; justify-content: space-between; align-items: center;
-                                            .img_wrap {
-                                                figcaption {text-align: center; @include text_24();margin-bottom: 10px; }
-                                                &.wrap_01 figcaption {color: #419991;} 
-                                                &.wrap_02 figcaption {color: #993c3b;} 
+                            
+                        }
+    
+                        .chart_wrap {
+                            display: flex; flex-wrap: wrap;
+                            margin-top: 70px;
+                            .chart {
+                                text-align: center;
+                                width: 50%;
+                                .chart_title { @include text_24(); }
+                                canvas { max-width: 340px; margin: 0 auto; }
+                            }
+                            
+                            .chart_info {
+                                margin-top: 70px;
+                                width: 100%;
+                                ul {
+                                    @include flexCenter();
+                                    li {
+                                        @include flexCenter();
+                                        margin-right: 40px;
+                                        &:last-child {margin-right: 0;}
+                                        span {
+                                            display: inline-block;
+                                            &.bar {
+                                                width: 36px; height: 4px;
+                                                &.bar_01 {background: #4275f4;}
+                                                &.bar_02 {background: #5798cf;}
+                                                &.bar_03 {background: #8db9de;}
+                                                &.bar_04 {background: #b7d2ea;}
+                                                &.bar_05 {background: #d6e5f3;}
+                                                &.bar_06 {background: #f4f4f4;}
+                                                &.bar_07 {background: #e5e5e5;}
                                             }
+                                            &.bar_text { margin-left: 10px; font-size: 16px; letter-spacing: -0.4px; color: #000; }
                                         }
-                                        &.con_box_02 {
-                                            border: solid 1px #e5e5e5;
-                                            width: 100%;
-                                            margin-right: 13px; 
-                                            &:last-child {margin-right: 0}
-                                          
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &#cu_104 {
+                        .section_01 {
+                            .content {
+                                &.content_01 {
+                                    .con {
+                                        &.con_01 {
+                                            margin-top: 70px;
                                         }
-                                        &.con_box_03 {
+                                    }
+                                }
+    
+                                &.content_02 {
+                                    .con {
+                                        &.con_01 { margin-top: 120px; }
+                                        &.con_02 { margin-top: 70px; }
+                                        .con_box {
                                             background-color: #fafafa;
-                                            figure {
-                                                margin-top: 40px;
-                                                img {
-                                                    margin-right: 20px;
-                                                    &:last-child {margin-right: 0;}
+                                            &.con_box_01 {
+                                                figure {
+                                                    display: flex; align-items: center; 
+                                                    img {
+                                                        &.img_01 { margin-right: 50px; }
+                                                        &.img_02 { margin-right: 66px; }
+                                                        &.img_03 { margin-right: 54px; }
+                                                    }
+                                                    figcaption {
+                                                        @include kr_text_18(); font-weight: bold; text-align: center; color: $color-100;
+                                                    }
+                                                }
+
+                                            }
+                                            &.con_box_02 {
+                                                overflow: hidden;
+                                                figure {
+                                                    img {
+                                                    }
+                                                    .point_svg {
+                                                        right: 0; top: 12%; fill: #f4f4f4;
+                                                        width: 531px; height: 511px;
+                                                    }
+                                                }
+                                            }
+
+                                            &.con_box_03 {
+                                                width: 50%;
+                                                margin-right: 20px;
+                                                &:last-child {margin-right: 0;}
+                                                .img_02 { margin-top: 20px; }
+                                            }
+
+                                            &.con_box_04 {
+                                                figure {
+                                                    padding: 15px 30px;
+                                                    background-color: #fff;
+                                                    display: flex; align-items: center;
+                                                    .img_01 {margin-right: 20px;}
+                                                }
+                                            }
+                                            .con_box_05 {
+                                                figure {
+                                                    display: flex; justify-content: space-between;
                                                 }
                                             }
                                         }
-                                        &.con_box_04 {
-                                            background-color: #fafafa;
-                                            width: 50%;
-                                            margin-right: 20px;
-                                            &:last-child{margin-right: 0;}
-                                        }
-                                    }
-
-                                    
-                                }
-                            }
-
-                        }
-                        
-                    }
-
-                    .chart_wrap {
-                        display: flex; flex-wrap: wrap;
-                        margin-top: 70px;
-                        .chart {
-                            text-align: center;
-                            width: 50%;
-                            .chart_title { @include text_24(); }
-                            canvas { max-width: 340px; margin: 0 auto; }
-                        }
-                        .chart_info {
-                            margin-top: 70px;
-                            width: 100%;
-                            ul {
-                                @include flexCenter();
-                                li {
-                                    @include flexCenter();
-                                    margin-right: 40px;
-                                    &:last-child {margin-right: 0;}
-                                    span {
-                                        display: inline-block;
-                                        &.bar {
-                                            width: 36px; height: 4px;
-                                            &.bar_01 {background: #4275f4;}
-                                            &.bar_02 {background: #5798cf;}
-                                            &.bar_03 {background: #8db9de;}
-                                            &.bar_04 {background: #b7d2ea;}
-                                            &.bar_05 {background: #d6e5f3;}
-                                            &.bar_06 {background: #f4f4f4;}
-                                            &.bar_07 {background: #e5e5e5;}
-                                        }
-                                        &.bar_text { margin-left: 10px; font-size: 16px; letter-spacing: -0.4px; color: #000; }
                                     }
                                 }
+    
                             }
+                            
                         }
+    
                     }
 
-                    
                 }
+                
+                
             }
         }
 
