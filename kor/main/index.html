@@ -51,7 +51,7 @@
     <script src="../js/swiper.js"></script>
     <script src="../js/aos.js"></script>
     <script src="../js/fullpage.min.js"></script>
-    <!-- <script src="../js/gsap.min.js"></script> -->
+    <script src="../js/gsap.min.js"></script>
     <!-- <script src="../js/wave.js"></script> -->
     <!-- <script src="../js/lity.js"></script> -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -260,8 +260,14 @@
                                         <br class="pc_only">
                                         diseases caused by the aging process and damage to blood vessels
                                     </span>
-                                    <!-- <a href="#none" class="text_03 btn_white_border black"><span>View More</span></a> -->
+                                    <a href="#none" class="btn_link text text_03">
+                                        <i class="ico circle"></i>
+                                        <span class="link_title">VIEW MORE</span>
+                                        <span class="ico arrow_01"></span>
+                                    </a>
+                                    
                                 </div>
+                                
                             </figcaption>
                         </figure>
                         <!-- slide_01 -->
@@ -282,7 +288,11 @@
                                         <br class="pc_only">
                                         diseases caused by the aging process and damage to blood vessels
                                     </span>
-                                    <!-- <a href="#none" class="text_03 btn_white_border black"><span>View More</span></a> -->
+                                    <a href="#none" class="btn_link text text_03">
+                                        <i class="ico circle"></i>
+                                        <span class="link_title">VIEW MORE</span>
+                                        <span class="ico arrow_01"></span>
+                                    </a>
                                 </div>
                             </figcaption>
                         </figure>
@@ -653,19 +663,26 @@
                 scrollHorizontally: true,
                 scrollOverflow: true,
 
-                navigation: true,
-                navigationTooltips: ['MAIN', 'COMPANY', 'COMMUNICATION', 'INVESTOR'],
-                showActiveTooltip: true,
-                navigationPosition: true,
+                // navigation: true,
+                // navigationTooltips: ['MAIN', 'COMPANY', 'COMMUNICATION', 'INVESTOR'],
+                // showActiveTooltip: true,
+                // navigationPosition: true,
                 responsiveWidth: 1600,
                 responsiveHeight: 600,
 
 
                 onLeave: function(anchorLink, index, direction) {
-                    let headerLeftImg = $('#header_left a img');
-                    (index == 3) ? $('#header').addClass('active'): $('#header').removeClass('active');
-                    $('#header').hasClass('active') ? headerLeftImg.attr('src', '../images/ico/logo_02.svg') : headerLeftImg.attr('src', '../images/ico/logo_01.svg');
-                    $('#header').hasClass('active') ? $('#fp-nav').addClass('active') : $('#fp-nav').removeClass('active');
+
+                    index == 3 ? $('#header').addClass('active'): $('#header').removeClass('active');
+                    index == 5 ? $('#header').hide(): $('#header').show();
+
+                    if($('#header').hasClass('active')) {
+                        $('#fp-nav').addClass('active') 
+                        $('#header_left a img').attr('src', '../images/ico/logo_02.svg') 
+                    } else {
+                        $('#header_left a img').attr('src', '../images/ico/logo_01.svg');
+                        $('#fp-nav').removeClass('active');
+                    }
 
                 }
 
@@ -706,6 +723,39 @@
             //     $('.tab_detail .detail_wrap').removeClass('active');
             //     $('.tab_detail .detail_wrap').eq(idx).addClass('active');
             // })
+
+     
+
+            $(".btn_link").parent().parent().mousemove(function (e) { // cursor event target
+                callParallax(e, this); // magnetic ball = low number is more attractive
+            });
+
+        
+            function callParallax(e, parent) {
+                parallaxIt(e, parent, parent.querySelectorAll(".ico.circle"), 85); //magnetic area = higher number is more attractive
+            }
+        
+            function parallaxIt(e, parent, target, movement) {
+                let boundingRect = parent.getBoundingClientRect();
+                let relX = e.clientX - boundingRect.left;
+                let relY = e.clientY - boundingRect.top;
+        
+                TweenMax.to(target, 0.3, {
+                    x: (relX - boundingRect.width / 2) / boundingRect.width * movement,
+                    y: (relY - boundingRect.height / 2) / boundingRect.height * movement,
+                    ease: Power2.easeOut
+                });
+            }
+        
+            function parallaxCursor(e, parent, movement) {
+                let rect = parent.getBoundingClientRect();
+                let relX = e.clientX - rect.left;
+                let relY = e.clientY - rect.top;
+                pos.x = rect.left + rect.width / 2 + (relX - rect.width / 2) / movement;
+                pos.y = rect.top + rect.height / 2 + (relY - rect.height / 2) / movement;
+                TweenMax.to(ball, 0.3, { x: pos.x, y: pos.y });
+            }
+        
 
 
 

@@ -438,7 +438,6 @@ body {
     */
     .btn_link {
         position: relative;
-        display: flex; align-items: center;
         .circle {
             width: 56px; height: 56px; border-radius: 100%;
         }
@@ -983,6 +982,17 @@ body {
                                             @include transition(all 1s .5s);
                                             @include kr_text_18();
                                             color: #f1f1f1;
+                                        }
+
+                                        &.text_03 {
+                                            @include transition(all 1s .5s);
+                                            margin-top: 20px;
+                                            display: flex;
+                                            .circle {background-color: $color-100;}
+                                            .link_title {
+                                                color: #fff;
+                                            }
+                                            .arrow_01 {border-color: #fff;}
                                         }
     
                                     }
@@ -1652,6 +1662,7 @@ body {
                                     }
                                 }
                             }
+
                             .history_swiper {
                                 margin-top: 30px;
                                 .his_bar1 {
