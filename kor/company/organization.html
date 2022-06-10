@@ -42,7 +42,6 @@
 
 
 
-
     <!-- --------------------CSS-------------------- -->
 
 
@@ -51,12 +50,13 @@
     <script src="../js/swiper.js"></script>
     <script src="../js/aos.js"></script>
     <script src="../js/fullpage.min.js"></script>
+    <script src="../js/orgchart.js"></script>
+
     <!-- <script src="../js/gsap.min.js"></script> -->
     <!-- <script src="../js/wave.js"></script> -->
     <!-- <script src="../js/lity.js"></script> -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
 
 
     <!-- --------------------Script-------------------- -->
@@ -299,9 +299,68 @@
                     <p class="section_tit_01">Organization <i class="ico ico_01"></i></p>
 
                     <div class="con con_01">
-                        <figure>
-                            <img src="../images/company/organ_01.svg" alt="">
-                        </figure>
+
+
+                        
+                        <!-- <div id="or_tree_wrap"></div> -->
+                        
+                        <div id="or_tree_wrap">
+
+                            <div class="or or_01">
+                                <div class="box box_c_01">
+                                    <p class="bold">이사회 (의장 : 권영근)</p>
+                                    <div class="box box_c_02"><p>SAB</p></div>
+                                </div>
+                                
+                            </div>
+
+
+                            <ul class="or or_02">
+
+                                <li class="or or_03 grid_01">
+                                    <div class="box box_c_03 left"> <p>대표이사(CEO/CFO)</p></div>
+
+                                    <div class="list">
+                                        <div class="box box_c_04"> <p class="bold">경영지원본부</p></div>
+                                        <div class="box box_c_05"> <p>재무 / 인사팀</p> </div>
+                                        <div class="box box_c_05"> <p>회계팀</p> </div>
+                                        <div class="box box_c_05"> <p>공시 / IR팀</p> </div>
+                                    </div>
+                                </li>
+
+                                <li class="or or_03 grid_03">
+                                    <div class="box box_c_03 right"> <p>대표이사(CEO/CSO)</p></div>
+
+
+                                    <div class="list_wrap">
+                                        <div class="list"> 
+                                            <div class="box box_c_04"> <p class="bold">임상개발본부</p></div>
+                                            <div class="box box_c_05"> <p>임상운영팀</p></div>
+                                        </div>
+    
+                                        <div class="list"> 
+                                            <div class="box box_c_04"> <p class="bold">사업개발본부</p></div>
+                                            <div class="box box_c_05"> <p>연구기획실</p></div>
+                                            <div class="box box_c_05"> <p>중앙연구소</p></div>
+                                            <div class="box box_c_05"> <p>산학협력바이오 Lab</p></div>
+                                            <div class="box box_img_01"><img src="../images/company/organ_logo_01.svg" alt=""></div>
+                                            <div class="point_text text_01">기술 연구인력 19명 : 박사 8명, 석사 10명, 학사 1명 (수의사1, 간호사1)</div>
+                                        </div>
+    
+                                        <div class="list"> 
+                                            <div class="box box_c_04"> <p class="bold">신약연구본부</p></div>
+                                            <div class="box box_c_05"> <p>신약연구소</p></div>
+                                        </div>
+                                    </div>
+                        
+                                </li>
+
+                            </ul>
+                        </div>
+                        
+
+
+
                     </div>
                 </div>
             </article>
@@ -361,9 +420,28 @@
     </footer>
 
 
-    
+
     <script>
-        $('.con_03 .list').hover(function(){
+        
+        // var chart = new OrgChart(document.getElementById("or_tree_wrap"), {
+        //     showXScroll: false,
+        //     showYScroll: false,
+
+        //     nodeBinding: {
+        //         field_0: "name",
+        //         field_1: "asd"
+        //     },
+        //     nodes: [
+        //         { id: 1, name: "이사회 (의장 : 권영근)"},
+        //         { id: 1, name: "SAB"},
+        //         { id: 2, pid: 1, name: "Ava Field" },
+        //         { id: 3, pid: 1, name: "Peter Stevens" },
+        //         { id: 3, pid: 1, name: "Peter Stevens" }
+        //     ]
+        // });
+        
+
+        $('.con_03 .list').hover(function() {
             $('.con_03 .list').removeClass('active');
             $(this).addClass('active');
         })

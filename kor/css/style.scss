@@ -1471,6 +1471,135 @@ body {
                         .con {
                             &.con_01 {
                                 margin-top: 70px;text-align: center;
+                            
+                                #or_tree_wrap {
+                                    .or  {
+                                        position: relative;
+                                        &.or_01 {
+                                        }
+                                        &.or_02 {
+                                            display: flex; justify-content: center;
+                                        }
+                                        &.or_03 {
+                                            padding: 60px 20px 0 0;
+                                            &:last-child {padding-right: 0;}
+                                            
+                                            &.grid_01 {width: 340px;}
+                                            &.grid_03 {
+                                                width: 820px;
+                                                .list_wrap {
+                                                    display: flex; justify-content: space-between;
+                                                    .list {
+                                                        width: 260px;
+                                                    }
+                                                }
+                                                
+                                            }
+                                        }
+                                    }
+                                    .point_text {
+                                        &.text_01 {
+                                            font-size: 16px; line-height: 1.75; letter-spacing: -0.4px; color: #555;
+                                            text-align: left;
+                                        }
+                                    }
+                                   
+                                    .list {
+                                        .box {
+                                            margin-bottom: 10px;
+                                            &:last-child {margin-bottom: 0;}
+                                        }
+                                    }
+                                    .box {
+                                        position: relative;
+                                        border-radius: 30px; margin: 0 auto;
+                                        @include flexCenter();
+                                        &::after,&::before {
+                                            content: '';
+                                            position: absolute;
+                                        }
+                                        p {
+                                            font-size: 18px; letter-spacing: -0.45px;
+                                            &.bold {font-weight: bold}
+                                        }
+                                  
+                                   
+
+                                        &.box_c_01 {
+                                            width: 220px; height: 60px;
+                                            background-color: #000; color: #fff;
+                                            margin-bottom: 50px;
+                                            p { }
+                                            &::after {
+                                                left: 50%; top: 100%; transform: translateX(-50%);
+                                                width: 1px; height: 50px;
+                                                background: linear-gradient(to top, $color-100 50%, rgba(255, 255, 255, 0) 0%) repeat-y;
+                                                background-size: 1px 7px;
+                                            }
+                                        }
+
+                                        &.box_c_02 {
+                                            position: absolute; left: 50%; top: 100%;
+                                            width: 100px; height: 50px;
+                                            border: solid 1px #4285f4;
+                                            background-color: #f6faff;
+                                            margin-left: 350px;
+                                            p {
+                                                color: $color-100;
+                                            }
+                                            &::after {
+                                                right: 100%; top: 50%; transform: translateY(-50%);
+                                                width: 350px; height: 1px;
+                                                background: linear-gradient(to left, $color-100 50%, rgba(255, 255, 255, 0) 0%) repeat-x;
+                                                background-size: 7px 1px;
+                                            }
+                                        }
+                                        
+                                        &.box_c_03 {
+                                            height: 60px; background-color: $color-100; color: #fff;
+                                            margin-bottom: 40px;
+
+                                            &::after {
+                                                position: absolute; left: 50%; bottom: 100%;
+                                                width: 1px; height: 100%;
+                                                background: linear-gradient(to top, $color-100 50%, rgba(255, 255, 255, 0) 0%) repeat-y;
+                                                background-size: 1px 7px;
+                                            }
+                                            &.left {
+                                                &::before {
+                                                    position: absolute; left: 50%; bottom: 100%;
+                                                    width: calc( 50% + 20px); height: 100%;
+                                                    background: linear-gradient(to left, $color-100 50%, rgba(255, 255, 255, 0) 0%) repeat-x;
+                                                    background-size: 7px 1px;
+                                                }
+                                            }
+                                            &.right {
+                                                &::before {
+                                                    position: absolute; right: 50%; bottom: 100%;
+                                                    width: calc( 50%); height: 100%;
+                                                    background: linear-gradient(to left, $color-100 50%, rgba(255, 255, 255, 0) 0%) repeat-x;
+                                                    background-size: 7px 1px;
+                                                }
+                                            }
+                                        }
+
+                                        &.box_c_04 {
+                                            height: 50px; background-color: #fff; color: $color-100;
+                                            border: 1px solid $color-100;
+                                            &::after {
+                                                position: absolute; left: 50%; bottom: 100%;
+                                                width: 1px; height: 100%;
+                                                background: linear-gradient(to top, $color-100 50%, rgba(255, 255, 255, 0) 0%) repeat-y;
+                                                background-size: 1px 7px;
+                                            }
+                                        }
+
+                                        &.box_c_05 {
+                                            height: 50px; color: $color-100; background: #f6faff;
+                                        }
+
+                                    }
+                                }  
                             }
                         }
                     }
