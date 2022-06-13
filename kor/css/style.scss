@@ -1044,7 +1044,7 @@ body {
 
                                         &.text_03 {
                                             @include transition(all 1s .5s);
-                                            margin-top: 20px;
+                                            margin-top: 50px;
                                             display: flex;
                                             .circle {background-color: $color-100;}
                                             .link_title {
