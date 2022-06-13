@@ -15,7 +15,7 @@ $(function () {
     var mainSwiper = new Swiper('.main_visual', {
         effect: "fade",
         slidesPerView: 1,
-        loop: true,
+        // loop: true,
         loopAdditionalSlides: 1,
         autoplay: {
             delay: 4000,
@@ -96,29 +96,29 @@ $(function () {
 
     var swiper02 = new Swiper(".history_swiper", {
         slidesPerView: 2,
-        slidesPerGroup : 2,
-        loopFillGroupWithBlank : true,
-        
+        slidesPerGroup: 2,
+        loopFillGroupWithBlank: true,
+
         autoHeight: true,
         breakpoints: { //반응형 조건 속성
-           1023: {
-               slidesPerView: 2,
-           },
-           767: {
-               slidesPerView: 1,
-                slidesPerGroup : 1
-           },
-           480: {
-               slidesPerView: 1,
-               slidesPerGroup : 1
-           },
-           0: {
-               slidesPerView: 1,
-               slidesPerGroup : 1
-           },
-       }
+            1023: {
+                slidesPerView: 2,
+            },
+            767: {
+                slidesPerView: 1,
+                slidesPerGroup: 1
+            },
+            480: {
+                slidesPerView: 1,
+                slidesPerGroup: 1
+            },
+            0: {
+                slidesPerView: 1,
+                slidesPerGroup: 1
+            },
+        }
     });
-   
+
 
     // // productThumb
     // let productThumb = new Swiper('.product_thum.swiper-container', {
@@ -267,13 +267,28 @@ $(function () {
         $(window).scroll(function () {
             var scroll = $(window).scrollTop(), wh = $(window).height(), headerHei = $('#header').height();
             scroll >= headerHei ? $('#header').addClass('active') : $('#header').removeClass('active');
-            
 
-            $('#header').hasClass('active') ?  $('#header_left img').attr('src','../images/ico/logo_02.svg') :   $('#header_left img').attr('src','../images/ico/logo_01.svg')
+            $('#header').hasClass('active') ? $('#header_left img').attr('src', '../images/ico/logo_02.svg') : $('#header_left img').attr('src', '../images/ico/logo_01.svg')
         });
-
-         
     }
+
+    function headerScroll_move() {
+        let thisScroll = 0;
+
+        $(window).scroll(function () {
+            let vy = $(this).scrollTop()
+
+                
+            $(window).scrollTop() <= 0 ? $("#header").removeClass('active') : null;
+            $(window).scrollTop() > thisScroll ? $("#header").addClass('change_top active') : $("#header").removeClass('change_top')
+
+            $('#header').hasClass('active') ? $('#header_left img').attr('src', '../images/ico/logo_02.svg') : $('#header_left img').attr('src', '../images/ico/logo_01.svg')
+
+            thisScroll = vy
+        });
+    }
+
+
 
     // window resize reload
     function windowResize() {
@@ -361,7 +376,6 @@ $(function () {
     }
 
     function headerLogo() {
-        
         headerScroll();
     }
 
@@ -456,7 +470,8 @@ $(function () {
     headerFullslide();
     // headerRight();
     header_curacle()
-    headerScroll()
+    // headerScroll()
+    headerScroll_move()
 
     console.log('common_js_end');
     // common_js_end

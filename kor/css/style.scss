@@ -535,6 +535,10 @@ body {
         
         a {color: rgba($color: #fff, $alpha: 1);}
 
+        &.change_top {
+            top: -85px;
+        }
+
         // active
         &.active, &:hover {
             background: #fff;
@@ -1436,6 +1440,99 @@ body {
                                                     }
                                                 }
                                             }
+                                            
+                                            &.con_02 {
+                                                #or_tree_wrap {
+                                                    position: relative;
+                                                    border: 1px dotted #888; border-radius: 10px;
+                                                    padding: 60px 30px;
+                                                    .or  {
+                                                        position: relative;
+                                                        &.or_01 {
+                                                            position: absolute; 
+                                                            left: 50%; top: -30px; transform: translateX(-50%);
+                                                        }
+                                                        &.or_02 {
+                                                            display: flex; justify-content: space-between;
+                                                        }
+                                                        &.or_03 {
+                                                            width: 100%;
+                                                            &:last-child {padding-right: 0;}
+                                                            
+                                                            &.grid_03 {
+                                                                .list_wrap {
+                                                                    display: flex; justify-content: space-between;
+                                                                    .list {
+                                                                        width: 340px;
+                                                                    }
+                                                                }
+                                                                
+                                                            }
+                                                        }
+                                                    }
+                                            
+                                           
+                                                    .box_wrap { border: 1px dotted $color-100; padding: 15px 10px; border-radius: 10px; margin-bottom: 10px;}
+                                                    .line {
+                                                        &.line_01 { margin: 10px 0; text-align: center; }
+                                                        &.line_02 { margin: 28px 5px; text-align: center; }
+                                                    }
+                                               
+                                                    .box {
+                                                        position: relative;
+                                                        border-radius: 30px; margin: 0 auto;
+                                                        @include flexCenter();
+                                                        &::after,&::before {
+                                                            content: '';
+                                                            position: absolute;
+                                                        }
+                                                        p {
+                                                            font-size: 18px; letter-spacing: -0.45px;
+                                                            &.bold {font-weight: bold}
+                                                        }
+                                                    
+                                                        &.box_c_01 { width: 500px; height: 60px; background-color: #000; color: #fff; }
+
+                                                        &.box_c_02 {
+                                                            height: 60px; background-color: #fff; color: $color-100;
+                                                            border: 1px solid $color-100;
+                                                            margin-bottom: 40px;
+                                                            &::after {
+                                                                position: absolute; left: 50%; top: calc(100% + 5px);
+                                                                width: 1px; height: 30px;
+                                                                background: linear-gradient(to top, $color-100 50%, rgba(255, 255, 255, 0) 0%) repeat-y;
+                                                                background-size: 1px 7px;
+                                                            }
+                                                         
+                                                            &.active { background-color: $color-100; color: #fff; }
+                                                        }
+
+                                                        &.box_c_03 {
+                                                            height: 50px; border: 1px solid $color-100; color: $color-100;
+                                                            margin-bottom: 10px; 
+                                                            &:last-child {margin-bottom: 0;}
+                                                        }
+                                                        &.box_c_04 {
+                                                            justify-content: flex-start;
+                                                            padding: 30px;  background-color: #F6FAFF;
+                                                            border-radius: 10px;
+                                                            p { font-size: 16px; letter-spacing: -0.4px; line-height: 1.75; color: $color-100; }
+                                                        }
+
+                                                        &.box_c_05 {
+                                                            height: 130px;
+                                                            border: 1px solid #e5e5e5;
+                                                            text-align: center;
+                                                            p {
+                                                                strong { font-size: 18px; font-weight: bold; line-height: 1.5; letter-spacing: -0.45px; color: #333; }  
+                                                                em { font-size: 16px; letter-spacing: -0.4px; color: #333; }
+                                                            }
+                                                        }
+
+                                                    } 
+                                                }  
+                                            }
+
                                             &.con_03 {
                                                 ul {
                                                     display: flex;
