@@ -1,0 +1,449 @@
+
+
+/* color-100 : cc*/
+$color-100 : #4285f4;
+$color-200 : #98afc7;
+
+// ====================================DEFAULT MIXIN====================================
+@mixin absolute-center {position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);}
+@mixin absolute-x($left, $top) {position: absolute;left: $left;top: $top;transform: translateX(-$left);}
+@mixin absolute-y($left, $top) {position: absolute;left: $left;top: $top;transform: translateY(-$top);}
+@mixin transition($x) {transition: $x;-webkit-transition: $x;-moz-transition: $x;-ms-transition: $x;-o-transition: $x;}
+@mixin border-radius($radius) { -webkit-border-radius: $radius; -moz-border-radius: $radius; -ms-border-radius: $radius; border-radius: $radius; }
+@mixin board_text {white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
+@mixin ellipsis($line: 1) {
+    @if ($line == 1) {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    } @else {
+      display: -webkit-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: $line;
+    }
+}
+  @mixin clearfix {
+    &::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+  }
+// ====================================DEFAULT MIXIN====================================
+
+
+// ====================================JJ MIXIN====================================
+@mixin fixed-layout {max-width: 1820px; width: 100%; margin: 0 auto; }
+@mixin fixed-layout_01 {max-width: 1670px; width: 100%;}
+@mixin fixed-layout-subpage {max-width: 1420px; width: 100%; margin: 0 auto;}
+@mixin not_fixed_layout {max-width: 100%; width: 100%; margin: 0 auto;}
+@mixin layoutBoxColor {border: 2px solid #f00;}
+
+@mixin header-height {height: 86px;}
+@mixin flexCenter { display: flex; justify-content: center; align-items: center; }
+@mixin fullsize {width: 100%; height: 100%;}
+
+// Margin
+// Top
+@mixin marginTop-120 {margin-top: 120px;}
+@mixin marginTop-100 {margin-top: 100px;}
+@mixin marginTop-80 {margin-top: 80px;}
+@mixin marginTop-70 {margin-top: 70px;}
+@mixin marginTop-40 {margin-top: 40px;}
+@mixin marginTop-30 {margin-top: 30px;}
+
+
+// Bottom
+@mixin marginBot-120 {margin-bottom: 120px;}
+
+
+// Padding
+@mixin padding_1480 {padding: 0 5%;}
+
+@mixin paddingTop-70 {padding-top: 70px;}
+@mixin paddingTop-40 {padding-top: 40px;}
+
+
+
+// FONT
+@mixin font-M {font-family: 'Montserrat';}
+@mixin font-R {font-family: 'Roboto';}
+@mixin font-Nanum {font-family: 'Nanum Brush Script';}
+
+
+@mixin font-40 { font-size: 40px;}
+@mixin font-32 { font-size: 32px;}
+@mixin font-18 { font-size: 18px; letter-spacing: -0.72px;}
+
+
+
+// curacle_text
+@mixin text_52 { font-size: 5.2rem; font-weight: bold; letter-spacing: -1.3px; }
+@mixin text_42 { font-size: 4.2rem; font-weight: bold; letter-spacing: -1.05px; }
+@mixin text_32 { font-size: 3.2rem; font-weight: bold; letter-spacing: -0.8px; }
+@mixin text_24 { font-size: 2.4rem; font-weight: bold; letter-spacing: -0.6px; }
+@mixin kr_text_18 { font-size: 18px; font-weight: normal; letter-spacing: -0.45px; color: #333; }
+@mixin kr_text_16 { font-size: 16px; font-weight: normal; letter-spacing: -0.4px; color: #333; }
+// ====================================JJ MIXIN====================================
+
+
+// ==================================== KEYFRAMES ====================================
+@keyframes moveY {
+    to {transform: translateY(0);}
+    50% {transform: translateY(100%);}
+    100% {transform: translateY(0);}
+}
+
+
+@keyframes dashCircle {
+    from {stroke-dashoffset: 1000;}
+    to {stroke-dashoffset: 0;}
+}
+@keyframes rotateinfin {
+    0%{transform:rotate(0); }
+    100%{transform:rotate(360deg);}
+}
+
+@keyframes dash {
+    90% {stroke-dashoffset: 0;}
+    100% {fill: $color-100;}
+}
+@keyframes dotscolor {
+    10% {background: red;}
+    30% {background: orange;}
+    50% {background: yellow;}
+
+    70% {background: green;}
+    100% {background: blue;}
+}
+
+@keyframes dotscolor_02 {
+    10% {color: red;}
+    30% {color: orange;}
+    50% {color: yellow;}
+    70% {color: green;}
+    100% {color: blue;}
+}
+
+@keyframes barload {
+    0% {width: 0}
+    100% {width: 100%}
+}
+@keyframes mapCircle_01 {
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
+}
+@keyframes mapline_01 {
+    0% {height: 0;}
+    100% {height: 60px;}
+}
+
+// ==================================== KEYFRAMES ====================================
+
+
+
+
+// ****************************************4K****************************************
+@media (min-width:2560px) {}
+
+
+@media (max-width: 1800px) {
+    body main.sub_page.rnd#project_02 .sub_section.section_02 .content_wrap .content.content_01
+    {
+        padding: 80px 0 0 100px;
+    }
+}
+// ****************************************1640px****************************************
+@media (max-width: 1640px) {
+
+    // ****************************************page css****************************************
+
+    // ****************************************page css****************************************
+
+
+}
+    
+    
+
+// **************************************** 1480px ****************************************
+@media (max-width: 1480px) {
+
+    // ****************************************default css****************************************
+    body {
+            
+        // table_공통 게시판
+        #table_default {
+            #table_header {
+                // search
+                .table_text_search {
+                    .search_form {
+                        fieldset {
+                            // form
+                            .form_02_selectbox {
+                                select, .nice-select { width: auto;  }
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            #table_body {
+
+                tbody {
+
+                    tr {
+                        td {
+
+                            &.table_num {
+                                .type {
+                                    @include flexCenter();
+                                    width: auto; height: auto; margin: 0 auto;
+                                }
+                            } 
+                        }
+                    }
+                }
+            }
+
+            #table_footer {
+                .num_box {
+                    a {
+                        font-size: 14px;
+                    }
+                }
+
+                .btn_box {
+                    a {width: 15px; height: 15px;}
+                }
+            }
+
+        }
+
+
+    }
+    // ****************************************default css****************************************
+        
+
+
+    // **************************************** header, footer ****************************************
+    // **************************************** header, footer ****************************************
+
+
+    // ****************************************page css****************************************
+    // ****************************************page css****************************************
+}
+
+
+
+// **************************************** 1100px ****************************************
+@media (max-width: 1100px) {
+
+    // ****************************************default css****************************************
+    body {
+    
+        #table_default {
+
+            #table_header {
+                .table_company_select {
+                    display: none;
+    
+                    .search_form {
+                        fieldset {
+                            legend {}
+    
+                            .form_01_title {}
+    
+                            .form_01_selectbox {
+                                select {}
+                            }
+                        }
+                    }
+                }
+    
+                .table_text_search {
+                    margin-top: 3rem;
+                    width: 100%;
+    
+                    .search_form {
+                        width: 100%;
+    
+                        fieldset {
+                            width: 100%;
+    
+                            .form_02_selectbox {
+                                display: flex;
+                                width: 100%;
+    
+                                select {}
+    
+                                input[type=text] {
+                                    margin-left: 1.5rem;
+                                    flex: 2;
+                                }
+    
+                                input[type=submit] {
+                                    margin-left: 1.5rem;
+                                }
+                            }
+                        }
+                    }
+                }
+    
+            }
+    
+            #table_body {
+    
+                thead {
+                    font-size: 16px;
+                    tr {
+                        th {
+                            &:nth-of-type(1) {}
+    
+                            &:nth-of-type(1) {}
+    
+                            &:nth-of-type(2) {}
+    
+                            &:nth-of-type(3) {}
+    
+                            &:nth-of-type(4),
+                            &:nth-of-type(5) {}
+                        }
+    
+                    }
+                }
+    
+                tbody {
+                    font-size: 15px;
+    
+                    tr {
+                        td {
+                            &:nth-child(2) {
+                                span {}
+                            }
+    
+                            &:nth-child(1) {}
+    
+                            &:nth-child(3) {}
+                        }
+    
+                        .notice_download {
+                            a {
+                                display: block;
+    
+                                img {
+                                    width: 15px;
+                                }
+                            }
+                        }
+                    }
+    
+                    &.active {}
+                }
+    
+    
+    
+    
+            }
+    
+            #table_footer {}
+        }
+    }
+    // ****************************************default css****************************************
+    
+    
+    // **************************************** header, footer ****************************************
+    body {
+        
+    }
+    // **************************************** header, footer ****************************************
+}
+
+
+
+// **************************************** 1024px ****************************************
+@media (max-width: 1024px) {
+
+}
+
+
+// **************************************** 767px ****************************************
+@media (max-width: 767px) {
+
+
+    // ****************************************default css****************************************
+    body {
+        // table_공통 게시판
+        #table_default {
+            #table_header {
+                // search
+                .table_text_search {
+                    .search_form {
+                        fieldset {
+                            // form
+                            .form_02_selectbox {
+                                select, .nice-select { width: auto;  }
+                                input[type=text] {margin: 0;}
+                            }
+                        }
+                    }
+                }
+            }
+
+            #table_body {
+                .table_num, .table_state, .table_hits {display: none;}
+                .table_data {width: 20% !important;}
+            }
+
+            #table_footer {margin-top: 60px;}
+        }
+    }
+    // ****************************************default css****************************************
+    
+
+    // **************************************** header, footer ****************************************
+    body {
+   
+    }
+    // **************************************** header, footer ****************************************
+
+
+    // ****************************************page css****************************************
+    body {
+
+    }
+    // ****************************************page css****************************************
+
+    
+
+}
+
+
+// **************************************** 479px ****************************************
+@media (max-width: 479px) {
+ 
+}
+
+
+
+
+
+
+
+// **************************************** Media-height ****************************************
+// **************************************** Media-height ****************************************
+// **************************************** Media-height ****************************************
+@media (max-height: 800px) {
+}
+
+@media (max-height: 600px) {
+}
+
+
+
+
+
+

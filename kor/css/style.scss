@@ -1,11 +1,6 @@
 @import url("./common.css");
 
 
-/* ms*/
-$search-time: 800ms;
-$reset-time: 150ms;
-
-
 /* color-100 : cc*/
 $color-100 : #4285f4;
 $color-200 : #98afc7;
@@ -92,11 +87,64 @@ $color-200 : #98afc7;
 @mixin text_24 { font-size: 2.4rem; font-weight: bold; letter-spacing: -0.6px; }
 @mixin kr_text_18 { font-size: 18px; font-weight: normal; letter-spacing: -0.45px; color: #333; }
 @mixin kr_text_16 { font-size: 16px; font-weight: normal; letter-spacing: -0.4px; color: #333; }
-
-
-
-
 // ====================================JJ MIXIN====================================
+
+
+// ==================================== KEYFRAMES ====================================
+
+@keyframes moveY {
+    to {transform: translateY(0);}
+    50% {transform: translateY(100%);}
+    100% {transform: translateY(0);}
+}
+
+
+@keyframes dashCircle {
+    from {stroke-dashoffset: 1000;}
+    to {stroke-dashoffset: 0;}
+}
+@keyframes rotateinfin {
+    0%{transform:rotate(0); }
+    100%{transform:rotate(360deg);}
+}
+
+@keyframes dash {
+    90% {stroke-dashoffset: 0;}
+    100% {fill: $color-100;}
+}
+@keyframes dotscolor {
+    10% {background: red;}
+    30% {background: orange;}
+    50% {background: yellow;}
+
+    70% {background: green;}
+    100% {background: blue;}
+}
+
+@keyframes dotscolor_02 {
+    10% {color: red;}
+    30% {color: orange;}
+    50% {color: yellow;}
+    70% {color: green;}
+    100% {color: blue;}
+}
+
+@keyframes barload {
+    0% {width: 0}
+    100% {width: 100%}
+}
+@keyframes mapCircle_01 {
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
+}
+@keyframes mapline_01 {
+    0% {height: 0;}
+    100% {height: 60px;}
+}
+
+// ==================================== KEYFRAMES ====================================
+
 
 
 
@@ -411,26 +459,32 @@ body {
 
             #quick_ico_01 - footer_video_banner
     */
+    
     #quick_ico_01 {
+        $quickWh_01 : 100px;
         position: fixed; right: 3%; bottom: 5%;
         z-index: 9999;
 
         // active, hover
-        &:hover {figure { opacity: .7 }}
+        a {
+            &:hover {figure { opacity: .7 }}
+            figure {
+                @include transition(.15s);
+                @include flexCenter(); flex-direction: column;
+                width: $quickWh_01; height: $quickWh_01;
+                background: $color-100; border-radius: 100%;
+                .ico_wrap {}
 
-        figure {
-            @include transition(.15s);
-            @include flexCenter(); flex-direction: column;
-            width: 100px; height: 100px;
-            background: $color-100; border-radius: 100%;
-            .ico_wrap {}
-
-            .text_01 { 
-                margin-top: 5px;
-                font-size: 14px; font-weight: 500;color: #fff;
+                .text_01 { 
+                    // margin-top: 5px;
+                    font-size: 14px; font-weight: 500;color: #fff;
+                    text-align: center;
+                }
+                
             }
-            
+
         }
+
     }
 
     /* 
@@ -1045,7 +1099,12 @@ body {
                         @include fullsize();
                         display: flex; flex-direction: column; justify-content: flex-end;
                         .title {
-                            margin-bottom: 200px;
+                            height: 100%;
+                            margin: 0;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            // margin-bottom: 200px;
                             .text {
                                 &.text_01 {
                                     @include text_42();
@@ -1352,30 +1411,33 @@ body {
                         > nav {
                             position: relative;
                             cursor: pointer;
+                            padding-right: 20px;
+                            &:last-child {padding-right: 75px}
+
                             
-                            &:not(.sub_nav_02) { &::after { content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 1px ; height: 24px; background-color: #e5e5e5; }}
-                            .arrow_02 {@include transition(all .3s); border-color: #333; width: 6px; height: 6px; transform: rotate(135deg);}
+                            // &:not(.sub_nav_02) { &::after { content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 1px ; height: 24px; background-color: #e5e5e5; }}
+                            .arrow_02 {@include transition(all .3s); border-color: #333; width: 6px; height: 6px; }
                             a { font-size: 14px; font-weight: 500; letter-spacing: -0.35px; color: #333; }
 
                             &.sub_nav_home {
-                                width: 100px;
+                                // width: 100px;
                                 display: flex; align-items: center;
                             }
 
                             &.sub_nav {
-                                width: 260px; height: 64px;
+                                /* width: 260px; */height: 64px;
                                 display: flex; align-items: center; 
                               
                                 .depth_wrap {
                                     @include fullsize();
                                     &:hover {
-                                        .depth_01 .arrow_02 {transform: rotate(315deg);}
+                                        // .depth_01 .arrow_02 {transform: rotate(315deg);}
                                         .depth_02 { max-height: 300px; }
                                     }
                                     .depth_01 {
                                         @include fullsize();
                                         display: flex; justify-content: space-between; align-items: center;
-                                        padding: 0 30px;
+                                        // padding: 0 30px;
                                     }
                                     .depth_02 {
                                         position: absolute; left: 0; top: 100%;
@@ -1402,7 +1464,6 @@ body {
                         }
 
                     }
-                    
                 } 
             }
 
@@ -2290,58 +2351,3 @@ body {
 
 
 
-
-// ==================================== KEYFRAMES ====================================
-
-@keyframes moveY {
-    to {transform: translateY(0);}
-    50% {transform: translateY(100%);}
-    100% {transform: translateY(0);}
-}
-
-
-@keyframes dashCircle {
-    from {stroke-dashoffset: 1000;}
-    to {stroke-dashoffset: 0;}
-}
-@keyframes rotateinfin {
-    0%{transform:rotate(0); }
-    100%{transform:rotate(360deg);}
-}
-
-@keyframes dash {
-    90% {stroke-dashoffset: 0;}
-    100% {fill: $color-100;}
-}
-@keyframes dotscolor {
-    10% {background: red;}
-    30% {background: orange;}
-    50% {background: yellow;}
-
-    70% {background: green;}
-    100% {background: blue;}
-}
-
-@keyframes dotscolor_02 {
-    10% {color: red;}
-    30% {color: orange;}
-    50% {color: yellow;}
-    70% {color: green;}
-    100% {color: blue;}
-}
-
-@keyframes barload {
-    0% {width: 0}
-    100% {width: 100%}
-}
-@keyframes mapCircle_01 {
-    0% {opacity: 0;}
-    50% {opacity: 1;}
-    100% {opacity: 0;}
-}
-@keyframes mapline_01 {
-    0% {height: 0;}
-    100% {height: 60px;}
-}
-
-// ==================================== KEYFRAMES ====================================
